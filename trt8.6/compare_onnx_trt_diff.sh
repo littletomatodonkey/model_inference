@@ -1,0 +1,12 @@
+polygraphy run resnet18.onnx \
+    --onnxrt --trt \
+    --workspace 100000000 \
+    --save-engine=resnet18.plan \
+    --atol 1e-3 --rtol 1e-3 \
+    --verbose \
+    --onnx-outputs mark all \
+    --trt-outputs mark all \
+    --trt-min-shapes 'input.1:[1,3,224,224]' \
+    --trt-opt-shapes 'input.1:[1,3,224,224]' \
+    --trt-max-shapes 'input.1:[1,3,224,224]' \
+    --input-shapes 'input.1:[1,3,224,224]'
